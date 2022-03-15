@@ -1,11 +1,11 @@
-# RestaurantMgt Sample UI JavaFX
+# Absence UI JavaFX
 
 This project is purely JavaFX - it gives you a basis of what to do regarding your projects, **Note:** it is not a fully fledged system.
 
-Dark Mode
+Login Page
 
-![](https://github.com/k33ptoo/RestaurantMgtSampleUI/blob/master/imgs/sc2.PNG)
+![](https://github.com/Beta7x/Absensi-JavaFX/tree/main/imgs/login-page.PNG)
 
-Light Mode
+Home Page
 
-![](https://github.com/k33ptoo/RestaurantMgtSampleUI/blob/master/imgs/sc.PNG)
+![](https://github.com/Beta7x/Absensi-JavaFX/tree/main/imgs/home-page.PNG)
