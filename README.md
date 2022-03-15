@@ -4,8 +4,8 @@ This project is purely JavaFX - it gives you a basis of what to do regarding you
 
 Login Page
 
-![](https://github.com/Beta7x/Absensi-JavaFX/tree/main/imgs/login-page.PNG)
+![](https://github.com/Beta7x/Absensi-JavaFX/tree/main/imgs/login-page.png)
 
 Home Page
 
-![](https://github.com/Beta7x/Absensi-JavaFX/tree/main/imgs/home-page.PNG)
+![](https://github.com/Beta7x/Absensi-JavaFX/tree/main/imgs/home-page.png)
