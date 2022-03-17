@@ -5,7 +5,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -17,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1031.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1028.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
    <children>
       <Pane layoutX="256.0" layoutY="1.0" prefHeight="55.0" prefWidth="798.0" style="-fx-background-color: #424647;" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -38,7 +39,7 @@
             </Label>
          </children>
       </Pane>
-      <StackPane layoutX="252.0" layoutY="55.0" prefHeight="521.0" prefWidth="798.0" style="-fx-background-color: #02030A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+      <StackPane fx:id="stackView" layoutX="252.0" layoutY="55.0" prefHeight="521.0" prefWidth="798.0" style="-fx-background-color: #02030A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="252.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
          <children>
             <Pane fx:id="pnlPDF" prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="pnlAbsensi" prefHeight="200.0" prefWidth="200.0" />
@@ -46,7 +47,7 @@
             <Pane fx:id="pnlSettings" prefHeight="200.0" prefWidth="200.0" />
             <Pane fx:id="pnlHome" prefHeight="554.0" prefWidth="793.0" style="-fx-background-color: #F8F8F8;">
                <children>
-                  <HBox alignment="CENTER_LEFT" layoutX="29.0" layoutY="20.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
+                  <HBox alignment="CENTER_LEFT" layoutX="33.0" layoutY="22.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                            <children>
@@ -98,59 +99,6 @@
                         </VBox>
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="28.0" layoutY="140.0" prefHeight="42.0" prefWidth="719.0" spacing="80.0" style="-fx-background-color: #4698D3; -fx-background-radius: 5;">
-                     <children>
-                        <Label text="NO" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets left="21.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="NAMA" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets left="41.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="TANGGAL" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets left="52.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="WAKTU" textFill="#e7e5e5">
-                           <HBox.margin>
-                              <Insets left="2.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <Label text="STATUS" textFill="#e7e5e5">
-                           <font>
-                              <Font name="System Bold" size="13.0" />
-                           </font>
-                           <HBox.margin>
-                              <Insets left="9.0" />
-                           </HBox.margin>
-                        </Label>
-                     </children>
-                  </HBox>
-                  <ScrollPane layoutX="29.0" layoutY="192.0" prefHeight="320.0" prefWidth="719.0" stylesheets="@../Controllers/style.css">
-                     <content>
-                        <VBox fx:id="pnItems" prefHeight="316.0" prefWidth="711.0" spacing="5.0" style="-fx-background-color: #47D298; -fx-background-color: transparent;">
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </VBox>
-                     </content>
-                  </ScrollPane>
                   <Label fx:id="lblHadir" layoutX="95.0" layoutY="41.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="Liberation Sans Bold" size="54.0" />
@@ -166,11 +114,22 @@
                         <Font name="Liberation Sans Bold" size="54.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblAlfa" layoutX="649.0" layoutY="41.0" text="0" textFill="WHITE">
+                  <Label fx:id="lblAlfa" layoutX="655.0" layoutY="41.0" text="0" textFill="WHITE">
                      <font>
                         <Font name="Liberation Sans Bold" size="54.0" />
                      </font>
                   </Label>
+                  <TableView fx:id="tblAbsensi" layoutX="33.0" layoutY="138.0" prefHeight="357.0" prefWidth="715.0">
+                    <columns>
+                      <TableColumn fx:id="idCol" prefWidth="34.0" style="-fx-alignment: center;" text="No" />
+                        <TableColumn fx:id="nimCol" prefWidth="107.0" style="-fx-alignment: center;" text="NIM" />
+                        <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="105.0" style="-fx-alignment: center;" text="Nama" />
+                        <TableColumn fx:id="birthCol" prefWidth="134.33331298828125" style="-fx-alignment: center;" text="Birth" />
+                        <TableColumn fx:id="addressCol" prefWidth="107.66668701171875" style="-fx-alignment: center;" text="Address" />
+                        <TableColumn fx:id="emailCol" minWidth="0.0" prefWidth="118.0" style="-fx-alignment: center;" text="Email" />
+                        <TableColumn fx:id="statusCol" prefWidth="108.66668701171875" style="-fx-alignment: center;" text="Status" />
+                    </columns>
+                  </TableView>
                </children>
             </Pane>
          </children>
