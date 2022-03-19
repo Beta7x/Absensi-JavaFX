@@ -4,10 +4,10 @@
     <list default="true" id="9a148f99-bcdd-4047-8fd3-c2822d2262ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fxml/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fxml/Item.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Connections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Connections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/SettingPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/SettingPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/SettingPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/SettingPane.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +44,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Libraries/JAVA/mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Libraries/JAVA/TrayNotification/TrayTester.jar" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -111,5 +111,18 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="java-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

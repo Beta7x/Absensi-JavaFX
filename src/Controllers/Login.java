@@ -9,9 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.io.IOException;
 import java.net.URL;
@@ -32,13 +35,16 @@ public class Login implements Initializable {
     @FXML
     private Button btnLogin;
 
-    @FXML
-    private ImageView close;
-
     // Database Connection
-    Connection con = null;
+    Connection con;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
+
+    // Notification
+    String title = null;
+    String message = null;
+    TrayNotification tray;
+    AnimationType type;
 
     @FXML
     public void handleButtonAction(MouseEvent mouseEvent) {
@@ -52,17 +58,23 @@ public class Login implements Initializable {
                     Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/Fxml/Home.fxml")));
                     stage.setScene(scene);
                     stage.show();
+
+                    // Popup Notification
+                    title = "Sign In";
+                    message = "Login Berhasil!";
+                    tray = new TrayNotification();
+                    type = AnimationType.POPUP;
+
+                    tray.setAnimationType(type);
+                    tray.setTitle(title);
+                    tray.setMessage(message);
+                    tray.setNotificationType(NotificationType.SUCCESS);
+                    tray.showAndDismiss(Duration.millis(3000));
                 } catch (IOException e) {
                     System.err.println(e.getMessage());
                     e.printStackTrace();
                 }
             }
-        }
-    }
-
-    public void closeClick (MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() == close) {
-            System.exit(0);
         }
     }
 
@@ -80,11 +92,21 @@ public class Login implements Initializable {
     }
 
     private String logIn() {
-        String status = "Success!";
+        String status = null;
         String user = txtUsername.getText();
         String pass = txtPassword.getText();
         if (user.isEmpty() || pass.isEmpty()) {
-            System.out.println("Empty credentials!");
+
+            title = "Error!";
+            message = "Kolom Username dan Password tidak boleh kosong!";
+            tray = new TrayNotification();
+            type = AnimationType.POPUP;
+
+            tray.setAnimationType(type);
+            tray.setTitle(title);
+            tray.setMessage(message);
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.millis(3000));
             status = "Error!";
         } else {
             // SQL
@@ -95,9 +117,21 @@ public class Login implements Initializable {
                 preparedStatement.setString(2, pass);
                 resultSet = preparedStatement.executeQuery();
                 if (!resultSet.next()) {
+                    title = "Error!";
+                    message = "Username atau Password Salah!";
+                    tray = new TrayNotification();
+                    type = AnimationType.POPUP;
+
+                    tray.setAnimationType(type);
+                    tray.setTitle(title);
+                    tray.setMessage(message);
+                    tray.setNotificationType(NotificationType.ERROR);
+                    tray.showAndDismiss(Duration.millis(3000));
+
                     System.out.println("Enter correct Username/Passsword!");
                 } else {
                     System.out.println("Login Successfull...");
+                    status = "Success!";
                 }
             } catch (SQLException e) {
                 System.err.println(e.getMessage());

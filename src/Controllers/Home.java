@@ -17,6 +17,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +31,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class Home implements Initializable {
@@ -150,7 +155,6 @@ public class Home implements Initializable {
 
         try {
             StudentsList.clear();
-
             query = "SELECT * FROM `students`";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
@@ -202,8 +206,6 @@ public class Home implements Initializable {
             Parent fxml = FXMLLoader.load(getClass().getResource("/Fxml/SettingPane.fxml"));
             stackView.getChildren().removeAll();
             stackView.getChildren().setAll(fxml);
-//            pnlSettings.setStyle("-fx-background-color : #424647");
-//            pnlSettings.toFront();
         }
         if (actionEvent.getSource() == btnHome) {
             pnlHome.setStyle("-fx-background-color : #F8F8F8");
@@ -213,11 +215,17 @@ public class Home implements Initializable {
             Parent fxml = FXMLLoader.load(getClass().getResource("/Fxml/AbsensiPane.fxml"));
             stackView.getChildren().removeAll();
             stackView.getChildren().setAll(fxml);
-//            pnlAbsensi.setStyle("-fx-background-color : #464F67");
-//            pnlAbsensi.toFront();
         }
         if (actionEvent.getSource()==btnSignout) {
-            System.exit(0);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Please Confirm");
+            alert.setHeaderText("Keluar?");
+            alert.setContentText("asdasdasd");
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                System.exit(0);
+                System.out.println("logout");
+            }
         }
     }
 }
