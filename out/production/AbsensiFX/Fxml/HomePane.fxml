@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="521.0" prefWidth="776.0" style="-fx-background-color: #F8F8F8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.HomePane">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="22.0" prefHeight="92.0" prefWidth="661.0" spacing="50.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Hadir.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="-38.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Izin.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="-38.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Sakit.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="-38.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ImageView fitHeight="118.0" fitWidth="173.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/Alfa.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="-38.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <Label fx:id="lblHadir" layoutX="97.0" layoutY="42.0" text="0" textFill="WHITE">
+         <font>
+            <Font name="Liberation Sans Bold" size="54.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblIzin" layoutX="283.0" layoutY="42.0" text="0" textFill="WHITE">
+         <font>
+            <Font name="Liberation Sans Bold" size="54.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSakit" layoutX="465.0" layoutY="42.0" text="0" textFill="WHITE">
+         <font>
+            <Font name="Liberation Sans Bold" size="54.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAlfa" layoutX="653.0" layoutY="42.0" text="0" textFill="WHITE">
+         <font>
+            <Font name="Liberation Sans Bold" size="54.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblAbsensi" layoutX="31.0" layoutY="138.0" onMouseClicked="#rowSelect" prefHeight="357.0" prefWidth="715.0" stylesheets="@../Controllers/style.css">
+         <columns>
+            <TableColumn fx:id="idCol" prefWidth="34.0" style="-fx-alignment: center;" text="No" />
+            <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="269.0" style="-fx-alignment: center;" text="Nama" />
+            <TableColumn fx:id="dateCol" prefWidth="183.0" style="-fx-alignment: center;" text="Tanggal" />
+            <TableColumn fx:id="timeCol" prefWidth="121.0" style="-fx-alignment: center;" text="Waktu" />
+            <TableColumn fx:id="statusCol" prefWidth="106.0" style="-fx-alignment: center;" text="Status" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

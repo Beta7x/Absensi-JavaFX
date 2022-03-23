@@ -12,7 +12,10 @@ import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class SettingPane implements Initializable {
@@ -81,12 +84,12 @@ public class SettingPane implements Initializable {
 
                         System.out.println("Wrong username and password!");
                     } else {
-                        if (newPass.equals(confirm)) {
+                        if (newPass.equals(confirm) && newPass.length() > 8) {
                             try {
                                 sql = "UPDATE admins SET password = '" + confirm + "' WHERE username = '" + user + "';";
                                 con.createStatement().executeUpdate(sql);
 
-                                // Notification Ppoup
+                                // Notification Popup
                                 title = "Success!";
                                 message = "Data telah diperbarui!";
                                 tray = new TrayNotification();
@@ -109,6 +112,17 @@ public class SettingPane implements Initializable {
                             } catch (SQLException e) {
                                 e.printStackTrace();
                             }
+                        } else if (newPass.length() < 8) {
+                            title = "Error!";
+                            message = "Panjang password minimal 8 karakter!";
+                            tray = new TrayNotification();
+                            type = AnimationType.POPUP;
+
+                            tray.setAnimationType(type);
+                            tray.setTitle(title);
+                            tray.setMessage(message);
+                            tray.setNotificationType(NotificationType.ERROR);
+                            tray.showAndDismiss(Duration.millis(3000));
                         } else {
                             title = "Error!";
                             message = "Konfirmasi Password tidak Cocok!";
@@ -136,6 +150,7 @@ public class SettingPane implements Initializable {
         } else {
             System.out.println("Server ready to go!");
         }
+
     }
 
     public SettingPane() {

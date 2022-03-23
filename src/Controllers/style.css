@@ -1,8 +1,9 @@
 .button {
--fx-background-color : #243032;
+-fx-background-color : transparent;
 -fx-text-fill : #e7e5e5;
 }
 /*
+243032 default button
 10165F
 243032
 05071F
@@ -46,3 +47,29 @@
 .scroll-pane > .corner {
     -fx-background-color: black;
 }
+
+/* Table */
+.btn:hover{
+    -fx-cursor:hand ;
+}
+.table-view {
+    -fx-background-color: #4698D3;
+    -fx-background-radius: 5;
+    }
+
+.table-view .column-header-background{
+        -fx-background-color: #4698D3;
+        -fx-background-radius: 5;
+        -fx-background-insets: 0 0 10 0;
+    }
+
+.table-view .column-header, .table-view .filler{
+        -fx-size: 40px;
+        -fx-border-width: 0 0 10 0;
+        -fx-background-color: transparent;
+    }
+
+.table-view .column-header .label {
+        -fx-text-fill: white ;
+        -fx-alignment: CENTER;
+    }

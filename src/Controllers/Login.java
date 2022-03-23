@@ -22,6 +22,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Login implements Initializable {
@@ -55,8 +56,9 @@ public class Login implements Initializable {
                     Node node = (Node) mouseEvent.getSource();
                     Stage stage = (Stage) node.getScene().getWindow();
                     stage.close();
-                    Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/Fxml/Home.fxml")));
+                    Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Home.fxml"))));
                     stage.setScene(scene);
+                    stage.setTitle("Digital Absensi");
                     stage.show();
 
                     // Popup Notification

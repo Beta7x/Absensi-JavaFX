@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="521.0" prefWidth="776.0" style="-fx-background-color: #F8F8F8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExportPane">
+
+    <TableView fx:id="tblAbsensi" layoutX="31.0" layoutY="81.0" prefHeight="414.0" prefWidth="715.0" stylesheets="@../Controllers/style.css">
+        <columns>
+            <TableColumn fx:id="idCol" prefWidth="34.0" style="-fx-alignment: center;" text="No" />
+            <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="269.0" style="-fx-alignment: center;" text="Nama" />
+            <TableColumn fx:id="dateCol" prefWidth="183.0" style="-fx-alignment: center;" text="Tanggal" />
+            <TableColumn fx:id="timeCol" prefWidth="121.0" style="-fx-alignment: center;" text="Waktu" />
+            <TableColumn fx:id="statusCol" prefWidth="106.0" style="-fx-alignment: center;" text="Status" />
+        </columns>
+    </TableView>
+    <HBox layoutX="31.0" layoutY="27.0" prefHeight="37.0" prefWidth="715.0">
+        <Label text="Bulan" />
+        <JFXComboBox fx:id="bulanBox" prefHeight="26.0" prefWidth="122.0">
+            <HBox.margin>
+                <Insets left="17.0" />
+            </HBox.margin>
+        </JFXComboBox>
+        <Label text="Tahun">
+            <HBox.margin>
+                <Insets left="17.0" />
+            </HBox.margin>
+        </Label>
+        <JFXComboBox fx:id="tahunBox" prefHeight="26.0" prefWidth="122.0">
+            <HBox.margin>
+                <Insets left="17.0" />
+            </HBox.margin>
+        </JFXComboBox>
+        <Button fx:id="pdfBtn" mnemonicParsing="false" onAction="#showData" style="-fx-background-color: #00CDE7;" stylesheets="@../Controllers/style.css" text="Export Data">
+            <HBox.margin>
+                <Insets left="17.0" />
+            </HBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </Button>
+    </HBox>
+</AnchorPane>
