@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a148f99-bcdd-4047-8fd3-c2822d2262ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_codec_1_15.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/deepoove_poi_ooxml_schemas_extra.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_9_0_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/net_sf_jasperreports.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AbsensiFX.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/AbsensiPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/AbsensiPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/ExportPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ExportPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/SettingPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/SettingPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fxml/ExportPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/ExportPane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fxml/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utils/Connections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Connections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/Close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/icons8_Meanpath_64px_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/jimmy-fallon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
