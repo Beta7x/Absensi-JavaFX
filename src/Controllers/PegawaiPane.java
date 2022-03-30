@@ -16,7 +16,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
@@ -95,8 +94,7 @@ public class PegawaiPane implements Initializable {
             stage.setScene(scene);
             stage.initStyle(StageStyle.UTILITY);
             stage.show();
-//            stage.initOwner();
-//            stage.initModality(Modality.APPLICATION_MODAL);
+
         }
         if (actionEvent.getSource() == btnHapus) {
 
@@ -222,7 +220,7 @@ public class PegawaiPane implements Initializable {
 
         System.out.println("button export pegawai clicked!");
         try {
-            jp = JasperFillManager.fillReport("report/Pegawai.jasper", param, Connections.conDB());
+            jp = JasperFillManager.fillReport("/home/venom/IdeaProjects/AbsensiFX/report/Pegawai.jasper", param, Connections.conDB());
             JasperViewer viewer = new JasperViewer(jp, false);
             viewer.setTitle("Daftar Pegawai");
             viewer.setVisible(true);

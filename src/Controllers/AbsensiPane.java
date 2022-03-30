@@ -19,6 +19,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -64,14 +65,33 @@ public class AbsensiPane implements Initializable {
     private TextField txtSearch;
 
     @FXML
+    private TextField txtId;
+
+    @FXML
     private DatePicker dateAbsen;
 
     @FXML
     private ImageView imgLup;
 
     @FXML
+    void btnSave(MouseEvent event) throws SQLException {
+        connection = Connections.conDB();
+        String name = txtName.getText();
+        String time = txtTime.getText();
+        String id = txtId.getText();
+        String status = statusBox.getValue().toString();
+        String date = String.valueOf(dateAbsen.getValue());
+        sql = "UPDATE absence SET absence.waktu = '"+ time +"', absence.tanggal = '"+date+"', absence.status = '"+status+"' WHERE absence.id_absen = '"+id+"';";
+        preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.execute();
+        loadData();
+
+    }
+
+    @FXML
     void rowSelect(MouseEvent event) {
         Absen clicked = tblAbsensi.getSelectionModel().getSelectedItem();
+        txtId.setText(String.valueOf(clicked.getId_absen()));
         txtName.setText(String.valueOf(clicked.getId_pegawai()));
         txtTime.setText(String.valueOf(clicked.getWaktu()));
     }
@@ -80,7 +100,6 @@ public class AbsensiPane implements Initializable {
     void searchAct(KeyEvent event) {
         loadData();
     }
-
 
     // Database Connection
     String query = null;
@@ -161,6 +180,9 @@ public class AbsensiPane implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         TimeNow();
         loadData();
+        txtId.setDisable(true);
+        txtName.setDisable(true);
+        datePicker.setValue(LocalDate.now());
         statusBox.setItems(stats);
     }
 }

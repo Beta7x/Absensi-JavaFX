@@ -40,7 +40,7 @@
                     <Insets left="11.0" right="15.0" />
                 </HBox.margin>
             </Label>
-            <TextField fx:id="txtName" prefHeight="26.0" prefWidth="280.0" style="-fx-background-color: #E9E9E9;">
+            <TextField fx:id="txtName" prefHeight="26.0" prefWidth="280.0" style="-fx-background-color: #E9E9E9; -fx-fill-text: #000000;">
                 <HBox.margin>
                     <Insets left="11.0" right="15.0" />
                 </HBox.margin>
@@ -58,6 +58,7 @@
                     <Insets left="11.0" right="15.0" />
                 </HBox.margin>
             </ComboBox>
+         <TextField fx:id="txtId" opacity="0.0" prefHeight="26.0" prefWidth="1.0" />
         </HBox>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <VBox.margin>
@@ -81,7 +82,7 @@
                     <Insets left="11.0" />
                 </HBox.margin>
             </DatePicker>
-            <Button fx:id="btnSave" mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: #00CDE7;" text="SIMPAN" textFill="WHITE">
+            <Button fx:id="btnSave" mnemonicParsing="false" onMouseClicked="#btnSave" prefWidth="150.0" style="-fx-background-color: #00CDE7;" text="SIMPAN" textFill="WHITE">
                 <HBox.margin>
                     <Insets left="101.0" />
                 </HBox.margin>
@@ -107,5 +108,6 @@
                 <Font name="System Bold" size="26.0" />
             </font>
         </Label>
+      <DatePicker fx:id="datePicker" layoutX="379.0" layoutY="14.0" />
     </Pane>
 </AnchorPane>

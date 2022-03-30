@@ -2,13 +2,15 @@ package Controllers;
 
 import Model.Absen;
 import Utils.Connections;
-import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -20,7 +22,6 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HomePane implements Initializable {
@@ -47,12 +48,6 @@ public class HomePane implements Initializable {
     private DatePicker datePicker;
 
     @FXML
-    private JFXButton btnGenerate;
-
-    @FXML
-    private JFXButton btnClean;
-
-    @FXML
     private Label lblTime;
     private final boolean stop = false;
 
@@ -68,35 +63,35 @@ public class HomePane implements Initializable {
     @FXML
     private Label lblSakit = new Label();
 
-    @FXML
-    void generateAction(MouseEvent event) {
-        if (event.getSource() == btnGenerate) {
-            // tambah data otomatis
-        }
-        if (event.getSource() == btnClean) {
-            try {
-                query = "DELETE FROM absence WHERE tanggal LIKE '%" + today + "%';";
-                if (today != null) {
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("Konfirmasi");
-                    alert.setHeaderText("Hapus Data?");
-                    alert.setContentText("Apakah anda yakin akan menghapus seluruh daftar hadir hari ini("+today+")?");
-                    Optional<ButtonType> result = alert.showAndWait();
-                    if (result.isPresent() && result.get() == ButtonType.OK) {
-                        connection = Connections.conDB();
-                        assert connection != null;
-                        preparedStatement = connection.prepareStatement(query);
-                        preparedStatement.execute();
-                        refreshTable();
-                    } else {
-                        connection.close();
-                    }
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+//    @FXML
+//    void generateAction(MouseEvent event) {
+//        if (event.getSource() == btnGenerate) {
+//            // tambah data otomatis
+//        }
+//        if (event.getSource() == btnClean) {
+//            try {
+//                query = "DELETE FROM absence WHERE tanggal LIKE '%" + today + "%';";
+//                if (today != null) {
+//                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+//                    alert.setTitle("Konfirmasi");
+//                    alert.setHeaderText("Hapus Data?");
+//                    alert.setContentText("Apakah anda yakin akan menghapus seluruh daftar hadir hari ini("+today+")?");
+//                    Optional<ButtonType> result = alert.showAndWait();
+//                    if (result.isPresent() && result.get() == ButtonType.OK) {
+//                        connection = Connections.conDB();
+//                        assert connection != null;
+//                        preparedStatement = connection.prepareStatement(query);
+//                        preparedStatement.execute();
+//                        refreshTable();
+//                    } else {
+//                        connection.close();
+//                    }
+//                }
+//            } catch (SQLException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//    }
 
     @FXML
      protected void searchAct(MouseEvent event) {
@@ -146,18 +141,18 @@ public class HomePane implements Initializable {
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()) {
-                myDate = resultSet.getString("tanggal");
-                System.out.println(myDate);
-                if (today.toString().equals(myDate)) {
-                    btnGenerate.setDisable(true);
-                    btnClean.setDisable(false);
-                } else {
-                    System.out.println("Query gagal");
-                    btnGenerate.setDisable(false);
-                    btnClean.setDisable(true);
-                }
-            }
+//            while (resultSet.next()) {
+//                myDate = resultSet.getString("tanggal");
+//                System.out.println(myDate);
+//                if (today.toString().equals(myDate)) {
+//                    btnGenerate.setDisable(true);
+//                    btnClean.setDisable(false);
+//                } else {
+//                    System.out.println("Query gagal");
+//                    btnGenerate.setDisable(false);
+//                    btnClean.setDisable(true);
+//                }
+//            }
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -198,7 +193,7 @@ public class HomePane implements Initializable {
 
             query = "SELECT absence.id_absen, employee.nama, absence.tanggal, absence.waktu, absence.status FROM " +
                     "absence INNER JOIN employee on employee.id_pegawai=absence.id_pegawai WHERE " +
-                    "absence.tanggal = '" + today +"'";
+                    " absence.tanggal = 'yyyy-mm-dd' OR absence.tanggal = '" + today +"'";
 
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();

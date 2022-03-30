@@ -7,16 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a148f99-bcdd-4047-8fd3-c2822d2262ca" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controllers/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/AbsensiFX_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/AbsensiFX_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/AbsensiPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/AbsensiPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/ExportPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ExportPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Apps.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/TambahPegawaiPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/TambahPegawaiPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fxml/TambahPegawaiPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/TambahPegawaiPane.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/HomePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/HomePane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/MainActivity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/PegawaiPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/PegawaiPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/HomePane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/HomePane.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
