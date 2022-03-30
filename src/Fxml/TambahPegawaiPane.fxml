@@ -31,7 +31,7 @@
    <ImageView fitHeight="77.0" fitWidth="68.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../images/TEGAL.png" />
    </ImageView>
-   <JFXButton fx:id="btnTambah" layoutX="388.0" layoutY="390.0" onAction="#buttonControlHandle" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #0FDB86; -fx-text-fill: white;" text="Tambah">
+   <JFXButton fx:id="btnTambah" layoutX="388.0" layoutY="390.0" onAction="#buttonControlHandle" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #0FDB86; -fx-text-fill: white;" text="Simpan">
       <font>
          <Font name="DejaVu Sans Bold" size="13.0" />
       </font>

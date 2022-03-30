@@ -11,9 +11,12 @@ import javafx.stage.StageStyle;
 
 import java.util.Objects;
 
-public class Main extends Application {
+public class Apps extends Application {
     private double x, y;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Close Window handle
@@ -44,7 +47,5 @@ public class Main extends Application {
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+
 }

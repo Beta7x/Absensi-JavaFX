@@ -29,12 +29,12 @@
                   <Image url="@../images/Separator.png" />
                </image>
             </ImageView>
-            <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="410.0" layoutY="222.0" prefHeight="40.0" prefWidth="282.0" promptText="P A S S W O R D" style="-fx-background-color: transparent; -fx-border-color: #47D298; -fx-border-radius: 5; -fx-border-width: 2.5px; -fx-text-fill: #FFFFFF;">
+            <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="410.0" layoutY="222.0" prefHeight="40.0" prefWidth="282.0" promptText="P A S S W O R D" style="-fx-border-color: #47D298; -fx-background-color: transparent; -fx-border-radius: 5; -fx-border-width: 2.5px; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font size="14.0" />
                </font>
             </PasswordField>
-            <TextField fx:id="txtUsername" alignment="CENTER" layoutX="410.0" layoutY="145.0" prefHeight="40.0" prefWidth="282.0" promptText="U S E R N A M E" style="-fx-background-color: transparemt; -fx-border-color: #47D298; -fx-border-radius: 5; -fx-border-width: 2.5px; -fx-text-fill: #FFFFFF;">
+            <TextField fx:id="txtUsername" alignment="CENTER" layoutX="410.0" layoutY="145.0" prefHeight="40.0" prefWidth="282.0" promptText="U S E R N A M E" style="-fx-border-color: #47D298; -fx-background-color: transparetn; -fx-border-radius: 5; -fx-border-width: 2.5px; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font size="14.0" />
                </font>

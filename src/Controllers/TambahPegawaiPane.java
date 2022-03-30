@@ -3,12 +3,16 @@ package Controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class TambahPegawaiPane {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class TambahPegawaiPane implements Initializable {
 
     @FXML
     private JFXButton btnHapus;
@@ -45,4 +49,9 @@ public class TambahPegawaiPane {
 
     }
 
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }

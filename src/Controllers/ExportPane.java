@@ -255,7 +255,7 @@ public class ExportPane implements Initializable {
 
         System.out.println("button export clicked!");
         try {
-            jp = JasperFillManager.fillReport("report/Laporan_Kehadiran.jasper", param, Connections.conDB());
+            jp = JasperFillManager.fillReport("/home/venom/IdeaProjects/AbsensiFX/src/report/Laporan_Kehadiran.jasper", param, Connections.conDB());
             JasperViewer viewer = new JasperViewer(jp, false);
             viewer.setTitle("Laporan Kehadiran");
             viewer.setVisible(true);
