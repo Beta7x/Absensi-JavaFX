@@ -1,9 +1,12 @@
 package Controllers;
 
 import Utils.Connections;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
@@ -16,9 +19,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class SettingPane implements Initializable {
+
+    @FXML
+    private DatePicker datePicker;
+
+    @FXML
+    private Label lblTime;
+    private final boolean stop = false;
 
     @FXML
     private Button btnUpdate;
@@ -145,6 +158,13 @@ public class SettingPane implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        // Set time
+        TimeNow();
+
+        // Set local date
+        datePicker.setValue(LocalDate.now());
+
         if (con == null) {
             System.out.println("Server Error!");
         } else {
@@ -155,5 +175,21 @@ public class SettingPane implements Initializable {
 
     public SettingPane() {
         con = Connections.conDB();
+    }
+
+    private void TimeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("k:mm:ss");
+            while (!stop) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                final String timenow = simpleDateFormat.format(new Date());
+                Platform.runLater(() -> lblTime.setText(timenow));
+            }
+        });
+        thread.start();
     }
 }

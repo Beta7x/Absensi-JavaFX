@@ -1,18 +1,18 @@
 package Controllers;
 
-import Model.Employee;
+import Model.Absen;
 import Utils.Connections;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.util.Duration;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -27,6 +27,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -34,28 +37,48 @@ import java.util.ResourceBundle;
 public class ExportPane implements Initializable {
 
     @FXML
+    private DatePicker datePicker;
+
+    @FXML
+    private ImageView imgLup;
+
+    @FXML
+    private Label lblTime;
+
+    @FXML
+    private TextField txtSearch;
+
+    @FXML
     private JFXComboBox<String> bulanBox;
 
     @FXML
-    private TableColumn<Employee, String> dateCol;
+    private TableColumn<Absen, String> dateCol;
 
     @FXML
-    private TableColumn<Employee, String> idCol;
+    private TableColumn<Absen, String> idCol;
 
     @FXML
-    private TableColumn<Employee, String> nameCol;
+    private TableColumn<Absen, String> nameCol;
 
     @FXML
-    private TableColumn<Employee, String> statusCol;
+    private TableColumn<Absen, String> statusCol;
 
     @FXML
     private JFXComboBox<String> tahunBox;
 
     @FXML
-    private TableView<Employee> tblAbsensi;
+    private TableView<Absen> tblAbsensi;
 
     @FXML
-    private TableColumn<?, ?> timeCol;
+    private TableColumn<Absen, String> timeCol;
+
+    @FXML
+    private JFXButton exportBtn;
+
+    @FXML
+    void searchAct(KeyEvent event) {
+        loadData();
+    }
 
     @FXML
     void showData() {
@@ -129,9 +152,14 @@ public class ExportPane implements Initializable {
     Connection connection = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
-    Employee employee = null;
+    Absen employee = null;
+    String sql, key;
 
-    ObservableList<Employee> EmployeeList = FXCollections.observableArrayList();
+    int noUrut;
+
+    private final boolean stop = false;
+
+    ObservableList<Absen> EmployeeList = FXCollections.observableArrayList();
     ObservableList<String> bulan = FXCollections.observableArrayList(
             "Januari",
             "Februari",
@@ -159,9 +187,27 @@ public class ExportPane implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TimeNow();
+        datePicker.setValue(LocalDate.now());
         loadData();
         bulanBox.setItems(bulan);
         tahunBox.setItems(tahun);
+    }
+
+    protected void TimeNow() {
+        Thread thread = new Thread(() -> {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("k:mm:ss");
+            while (!stop) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                final String timenow = simpleDateFormat.format(new Date());
+                Platform.runLater(() -> lblTime.setText(timenow));
+            }
+        });
+        thread.start();
     }
 
     private void loadData() {
@@ -173,41 +219,23 @@ public class ExportPane implements Initializable {
         dateCol.setCellValueFactory(new PropertyValueFactory<>("tanggal"));
         timeCol.setCellValueFactory(new PropertyValueFactory<>("waktu"));
         statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-        // Add button edit
-        Callback<TableColumn<Employee, String>, TableCell<Employee, String>> cellFactory = (TableColumn<Employee, String> param) -> {
-            // Make cell containing button
-            final TableCell<Employee, String> cell = new TableCell<Employee, String>() {
-                public void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (empty) {
-                        setGraphic(null);
-                        setText(null);
-                    } else {
-                        Button status = new Button();
-                        status.setText("ALPA");
-                        status.setStyle(
-                                "-fx-cursor: hand;"
-                                        + "-fx-background-color: #0FDB86;"
-                        );
-                    }
-                }
-            };
-            return cell;
-        };
     }
 
     private void refreshTable() {
         try {
             EmployeeList.clear();
+            key = txtSearch.getText();
+            sql = key.isEmpty()? "" : "WHERE absence.id_absen " + "LIKE '%" + key + "%' OR employee.nama LIKE " +
+                    "'%" + key + "%' OR absence.tanggal LIKE '%" + key + "%' OR absence.waktu LIKE '%" + key + "%' OR " +
+                    "absence.status LIKE '%" + key + "%'";
             query = "SELECT absence.id_absen, employee.nama, absence.tanggal, absence.waktu, absence.status\n" +
-                    "FROM absence INNER JOIN employee on employee.id_pegawai=absence.id_pegawai " +
-                    "ORDER BY absence.waktu ASC;";
+                    "FROM absence INNER JOIN employee on employee.id_pegawai=absence.id_pegawai " + sql + " ORDER BY absence.waktu ASC;";
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
+            noUrut = 0;
 
             while (resultSet.next()) {
-                EmployeeList.add(new Employee(
+                EmployeeList.add(new Absen(
                         resultSet.getInt("id_absen"),
                         resultSet.getString("nama"),
                         resultSet.getString("tanggal"),

@@ -1,9 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="AbsensiFX:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9a148f99-bcdd-4047-8fd3-c2822d2262ca" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controllers/PegawaiPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fxml/TambahPegawaiPane.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/Pegawai.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/images/TEGAL.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/query.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AbsensiFX.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AbsensiFX.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/AbsensiPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/AbsensiPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/Confirm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/ExportPane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/ExportPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/Home$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/Home.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/HomePane$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/HomePane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/Login.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/SettingPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Controllers/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Fxml/AbsensiPane.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Fxml/Confirm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Fxml/ExportPane.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Fxml/Home.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Fxml/HomePane.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Fxml/Login.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Fxml/SettingPane.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Model/Employee.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/Utils/Connections.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/absensi.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/Alfa.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/Group 27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/Hadir.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/HomeIcon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/Izin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/Login(logo).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/Sakit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/Separator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/amico.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/check-green.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_Box_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_GPS_Antenna_64px_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_Home_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_Open_Envelope_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_Person_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_Search_52px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_Sign_Out_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_Slider__32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/icons8_Xbox_Menu_32px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/security.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AbsensiFX/images/warning.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/AbsensiPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/AbsensiPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Confirm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/ExportPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ExportPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/HomePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/HomePane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/SettingPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/SettingPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/Confirm.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/ExportPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/ExportPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/Home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/HomePane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/HomePane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/Login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/SettingPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/SettingPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Absen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,23 +117,23 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Libraries/JAVA/poi2/SparseBitSet-1.2.jar" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Fxml" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/Report" />
       <recent name="$PROJECT_DIR$/src/Fxml" />
+      <recent name="$PROJECT_DIR$/src/Report" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/report" />
       <recent name="$PROJECT_DIR$/src/Fxml" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.MainActivity">
     <configuration name="Connections" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Utils.Connections" />
       <module name="AbsensiFX" />
@@ -78,7 +150,6 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Controllers.Main" />
       <module name="AbsensiFX" />
-      <option name="VM_PARAMETERS" value="--module-path $USER_HOME$/Libraries/JAVA/javafx-sdk-17.0.2/lib --add-modules javafx.controls,javafx.fxml " />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Utils.*" />
@@ -89,8 +160,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainActivity" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainActivity" />
+      <module name="AbsensiFX" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Connections" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.MainActivity" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MainActivity" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Connections" />
       </list>
@@ -134,5 +218,10 @@
         <breakpoint enabled="true" type="java-exception" />
       </default-breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="libraryName" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="458.0" prefWidth="776.0" style="-fx-background-color: #F8F8F8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.TambahPegawaiPane">
+   <Label layoutX="98.0" layoutY="16.0" text="Form Tambah Pegawai" textFill="#5c87d7">
+      <font>
+         <Font name="DejaVu Sans Bold" size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="97.0" layoutY="41.0" text="Kelurahan Harjosari Kidul" textFill="#5c87d7">
+      <font>
+         <Font name="DejaVu Sans Bold" size="20.0" />
+      </font>
+   </Label>
+   <Label layoutX="98.0" layoutY="67.0" text="Kabupaten Tegal">
+      <font>
+         <Font name="DejaVu Sans Bold" size="20.0" />
+      </font>
+   </Label>
+   <ImageView fitHeight="77.0" fitWidth="68.0" layoutX="19.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@../images/TEGAL.png" />
+   </ImageView>
+   <JFXButton fx:id="btnTambah" layoutX="388.0" layoutY="390.0" onAction="#buttonControlHandle" prefHeight="32.0" prefWidth="180.0" style="-fx-background-color: #0FDB86; -fx-text-fill: white;" text="Tambah">
+      <font>
+         <Font name="DejaVu Sans Bold" size="13.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </JFXButton>
+   <JFXButton fx:id="btnHapus" layoutX="584.0" layoutY="390.0" onAction="#buttonControlHandle" prefHeight="32.0" prefWidth="161.0" style="-fx-background-color: #FF0000; -fx-text-fill: white;" text="Batal">
+      <font>
+         <Font name="DejaVu Sans Bold" size="13.0" />
+      </font>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor>
+   </JFXButton>
+   <TextArea fx:id="txtAlamat" layoutX="386.0" layoutY="156.0" prefHeight="219.0" prefWidth="360.0" style="-fx-background-color: #E9E9E9; -fx-border-color: none;" />
+   <VBox layoutX="32.0" layoutY="130.0" prefHeight="307.0" prefWidth="334.0">
+      <children>
+         <Label text="Nomor Pegawai">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Liberation Sans Bold" size="13.0" />
+            </font>
+         </Label>
+         <TextField fx:id="txtNIP" prefHeight="26.0" prefWidth="280.0" style="-fx-background-color: #E9E9E9;">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+         </TextField>
+         <Label text="Nama lengkap">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Liberation Sans Bold" size="13.0" />
+            </font>
+         </Label>
+         <TextField fx:id="txtNama" prefHeight="26.0" prefWidth="280.0" style="-fx-background-color: #E9E9E9;">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+         </TextField>
+         <Label text="Jabatan">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Liberation Sans Bold" size="13.0" />
+            </font>
+         </Label>
+         <TextField fx:id="txtJabatan" prefHeight="26.0" prefWidth="340.0" style="-fx-background-color: #E9E9E9;">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+         </TextField>
+         <Label text="Golongan">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Liberation Sans Bold" size="13.0" />
+            </font>
+         </Label>
+         <TextField fx:id="txtGolongan" prefHeight="26.0" prefWidth="280.0" style="-fx-background-color: #E9E9E9;">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+         </TextField>
+         <Label text="Tanggal Lahir">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+            <font>
+               <Font name="Liberation Sans Bold" size="13.0" />
+            </font>
+         </Label>
+         <TextField fx:id="txtTanggalLahir" prefHeight="26.0" prefWidth="280.0" style="-fx-background-color: #E9E9E9;">
+            <VBox.margin>
+               <Insets bottom="10.0" />
+            </VBox.margin>
+         </TextField>
+      </children>
+   </VBox>
+   <Label layoutX="435.0" layoutY="130.0" text="Alamat">
+      <font>
+         <Font name="Liberation Sans Bold" size="13.0" />
+      </font>
+   </Label>
+</AnchorPane>

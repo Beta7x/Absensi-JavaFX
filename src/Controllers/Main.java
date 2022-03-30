@@ -24,7 +24,7 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../Fxml/Login.fxml")));
         primaryStage.getIcons().add(new Image("images/icon.png"));
-        primaryStage.setTitle("Digital Absensi | Login");
+        primaryStage.setTitle("Digital Absen | Login");
         primaryStage.setScene(new Scene(root));
         //set stage borderless
         primaryStage.initStyle(StageStyle.DECORATED);

@@ -1,50 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="521.0" prefWidth="776.0" style="-fx-background-color: #F8F8F8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExportPane">
+<AnchorPane prefHeight="576.0" prefWidth="776.0" style="-fx-background-color: #F8F8F8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ExportPane">
 
-    <TableView fx:id="tblAbsensi" layoutX="31.0" layoutY="81.0" prefHeight="414.0" prefWidth="715.0" stylesheets="@../Controllers/style.css">
+    <TableView fx:id="tblAbsensi" layoutX="31.0" layoutY="134.0" prefHeight="414.0" prefWidth="715.0" stylesheets="@../Controllers/style.css">
         <columns>
             <TableColumn fx:id="idCol" prefWidth="34.0" style="-fx-alignment: center;" text="No" />
             <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="269.0" style="-fx-alignment: center;" text="Nama" />
             <TableColumn fx:id="dateCol" prefWidth="183.0" style="-fx-alignment: center;" text="Tanggal" />
             <TableColumn fx:id="timeCol" prefWidth="121.0" style="-fx-alignment: center;" text="Waktu" />
-            <TableColumn fx:id="statusCol" prefWidth="106.0" style="-fx-alignment: center;" text="Status" />
+            <TableColumn fx:id="statusCol" prefWidth="104.0" style="-fx-alignment: center;" text="Status" />
         </columns>
     </TableView>
-    <HBox layoutX="31.0" layoutY="27.0" prefHeight="37.0" prefWidth="715.0">
-        <Label text="Bulan" />
-        <JFXComboBox fx:id="bulanBox" prefHeight="26.0" prefWidth="122.0">
+    <HBox layoutX="31.0" layoutY="80.0" prefHeight="37.0" prefWidth="715.0">
+        <Label text="Bulan" textFill="#686565">
+         <font>
+            <Font name="Liberation Sans Bold" size="18.0" />
+         </font>
+         <HBox.margin>
+            <Insets />
+         </HBox.margin>
+         <padding>
+            <Insets top="5.0" />
+         </padding></Label>
+        <JFXComboBox fx:id="bulanBox" prefHeight="26.0" prefWidth="122.0" promptText="Pilih Bulan" visibleRowCount="12">
             <HBox.margin>
                 <Insets left="17.0" />
             </HBox.margin>
         </JFXComboBox>
-        <Label text="Tahun">
+        <Label text="Tahun" textFill="#686565">
             <HBox.margin>
                 <Insets left="17.0" />
             </HBox.margin>
+         <font>
+            <Font name="Liberation Sans Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
         </Label>
-        <JFXComboBox fx:id="tahunBox" prefHeight="26.0" prefWidth="122.0">
+        <JFXComboBox fx:id="tahunBox" prefHeight="26.0" prefWidth="122.0" promptText="Pilih Tahun">
             <HBox.margin>
                 <Insets left="17.0" />
             </HBox.margin>
         </JFXComboBox>
-        <Button fx:id="pdfBtn" mnemonicParsing="false" onAction="#showData" style="-fx-background-color: #00CDE7;" stylesheets="@../Controllers/style.css" text="Export Data">
-            <HBox.margin>
-                <Insets left="17.0" />
-            </HBox.margin>
+      <JFXButton fx:id="exportBtn" alignment="BASELINE_LEFT" buttonType="RAISED" graphicTextGap="17.0" onAction="#showData" prefHeight="34.0" prefWidth="186.0" ripplerFill="WHITE" style="-fx-background-color: #00CDE7;" text="Export Data" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Sans Bold" size="13.0" />
+         </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-        </Button>
+         <graphic>
+             <ImageView fitHeight="24.0" fitWidth="19.0" pickOnBounds="true" preserveRatio="true">
+                 <Image url="@../images/Group 41.png" />
+             </ImageView>
+         </graphic>
+         <HBox.margin>
+            <Insets left="39.0" />
+         </HBox.margin>
+         <padding>
+            <Insets left="19.0" />
+         </padding>
+      </JFXButton>
     </HBox>
+    <Pane prefHeight="55.0" prefWidth="776.0" style="-fx-background-color: #424647;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TextField fx:id="txtSearch" layoutX="43.0" layoutY="13.0" onKeyTyped="#searchAct" prefHeight="27.0" prefWidth="268.0" promptText="search" style="-fx-background-color: #666666; -fx-background-radius: 10; -fx-text-fill: white;" />
+        <ImageView fx:id="imgLup" fitHeight="17.0" fitWidth="16.0" layoutX="282.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <Image url="@../images/Group 40.png" />
+        </ImageView>
+        <DatePicker fx:id="datePicker" layoutX="353.0" layoutY="14.0" style="-fx-background-color: transparent;" />
+        <Label fx:id="lblTime" layoutX="624.0" layoutY="8.0" text="00:00" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="26.0" />
+            </font>
+        </Label>
+      <rotationAxis>
+         <Point3D />
+      </rotationAxis>
+    </Pane>
 </AnchorPane>

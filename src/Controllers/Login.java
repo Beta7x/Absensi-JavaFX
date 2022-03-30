@@ -1,15 +1,15 @@
 package Controllers;
 
 import Utils.Connections;
+import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
@@ -34,7 +34,7 @@ public class Login implements Initializable {
     private PasswordField txtPassword;
 
     @FXML
-    private Button btnLogin;
+    private JFXButton btnLogin;
 
     // Database Connection
     Connection con;
@@ -48,7 +48,8 @@ public class Login implements Initializable {
     AnimationType type;
 
     @FXML
-    public void handleButtonAction(MouseEvent mouseEvent) {
+    protected void handleButtonAction(ActionEvent mouseEvent) {
+
         if (mouseEvent.getSource() == btnLogin) {
             // Login
             if (logIn().equals("Success!")) {
@@ -58,7 +59,8 @@ public class Login implements Initializable {
                     stage.close();
                     Scene scene = new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/Home.fxml"))));
                     stage.setScene(scene);
-                    stage.setTitle("Digital Absensi");
+                    stage.setTitle("Digital Absen");
+
                     stage.show();
 
                     // Popup Notification
@@ -130,9 +132,9 @@ public class Login implements Initializable {
                     tray.setNotificationType(NotificationType.ERROR);
                     tray.showAndDismiss(Duration.millis(3000));
 
-                    System.out.println("Enter correct Username/Passsword!");
+                    System.out.println("Enter correct Username/Password!");
                 } else {
-                    System.out.println("Login Successfull...");
+                    System.out.println("Login Successfully...");
                     status = "Success!";
                 }
             } catch (SQLException e) {
