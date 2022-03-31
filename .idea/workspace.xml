@@ -9,12 +9,14 @@
     <list default="true" id="9a148f99-bcdd-4047-8fd3-c2822d2262ca" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/AbsensiPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/AbsensiPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/ExportPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ExportPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/HomePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/HomePane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/MainActivity.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/PegawaiPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/PegawaiPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/TambahPegawaiPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/TambahPegawaiPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/AbsensiPane.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Fxml/HomePane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/HomePane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/PegawaiPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/PegawaiPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fxml/TambahPegawaiPane.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fxml/TambahPegawaiPane.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Pegawai.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Pegawai.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +58,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Libraries/JAVA/zulu17.32.13-ca-fx-jdk17.0.2-linux_x64/bin/serialver" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Fxml" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

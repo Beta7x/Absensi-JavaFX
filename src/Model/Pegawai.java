@@ -3,13 +3,15 @@ package Model;
 public class Pegawai {
 
     private int id_pegawai;
-    private String nomor_pegawai, nama, golongan, alamat;
+    private String nomor_pegawai, nama, golongan, jabatan, ttl, alamat;
 
-    public Pegawai(int id_pegawai, String nomor_pegawai, String nama, String golongan, String alamat) {
+    public Pegawai(int id_pegawai, String nomor_pegawai, String nama, String golongan, String jabatan, String ttl, String alamat) {
         this.id_pegawai = id_pegawai;
         this.nomor_pegawai = nomor_pegawai;
         this.nama = nama;
         this.golongan = golongan;
+        this.jabatan = jabatan;
+        this.ttl = ttl;
         this.alamat = alamat;
     }
 
@@ -43,6 +45,22 @@ public class Pegawai {
 
     public void setGolongan(String golongan) {
         this.golongan = golongan;
+    }
+
+    public String getJabatan() {
+        return jabatan;
+    }
+
+    public void setJabatan(String jabatan) {
+        this.jabatan = jabatan;
+    }
+
+    public String getTtl() {
+        return ttl;
+    }
+
+    public void setTtl(String ttl) {
+        this.ttl = ttl;
     }
 
     public String getAlamat() {

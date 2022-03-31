@@ -2,15 +2,14 @@ package Controllers;
 
 import Model.Absen;
 import Utils.Connections;
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 
@@ -22,6 +21,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HomePane implements Initializable {
@@ -48,6 +48,12 @@ public class HomePane implements Initializable {
     private DatePicker datePicker;
 
     @FXML
+    private JFXButton btnGenerate;
+
+    @FXML
+    private JFXButton btnClean;
+
+    @FXML
     private Label lblTime;
     private final boolean stop = false;
 
@@ -63,41 +69,47 @@ public class HomePane implements Initializable {
     @FXML
     private Label lblSakit = new Label();
 
-//    @FXML
-//    void generateAction(MouseEvent event) {
-//        if (event.getSource() == btnGenerate) {
-//            // tambah data otomatis
-//        }
-//        if (event.getSource() == btnClean) {
-//            try {
-//                query = "DELETE FROM absence WHERE tanggal LIKE '%" + today + "%';";
-//                if (today != null) {
-//                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//                    alert.setTitle("Konfirmasi");
-//                    alert.setHeaderText("Hapus Data?");
-//                    alert.setContentText("Apakah anda yakin akan menghapus seluruh daftar hadir hari ini("+today+")?");
-//                    Optional<ButtonType> result = alert.showAndWait();
-//                    if (result.isPresent() && result.get() == ButtonType.OK) {
-//                        connection = Connections.conDB();
-//                        assert connection != null;
-//                        preparedStatement = connection.prepareStatement(query);
-//                        preparedStatement.execute();
-//                        refreshTable();
-//                    } else {
-//                        connection.close();
-//                    }
-//                }
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    }
-
     @FXML
-     protected void searchAct(MouseEvent event) {
-        System.out.println("aksi dijalankan!");
-        String todate = datePicker.getValue().toString();
-        System.out.println(todate);
+    void generateAction(MouseEvent event) throws SQLException{
+        if (event.getSource() == btnGenerate) {
+            connection = Connections.conDB();
+            query = "INSERT INTO `absence` (id_pegawai) SELECT `employee`.`id_pegawai` FROM `employee`";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.execute();
+            query = "UPDATE `absence` SET absence.tanggal = '"+today+"' WHERE absence.tanggal = 'yyyy-mm-dd';";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.execute();
+            btnGenerate.setDisable(true);
+            btnClean.setDisable(false);
+            refreshTable();
+            connection.close();
+        }
+        if (event.getSource() == btnClean) {
+            try {
+                query = "DELETE FROM absence WHERE tanggal LIKE '%" + today + "%';";
+                if (today != null) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("Konfirmasi");
+                    alert.setHeaderText("Hapus Data?");
+                    alert.setContentText("Apakah anda yakin akan menghapus seluruh daftar hadir hari ini("+today+")?");
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.isPresent() && result.get() == ButtonType.OK) {
+                        connection = Connections.conDB();
+                        assert connection != null;
+                        preparedStatement = connection.prepareStatement(query);
+                        preparedStatement.execute();
+                        refreshTable();
+                        btnClean.setDisable(true);
+                        btnGenerate.setDisable(false);
+                        connection.close();
+                    } else {
+                        connection.close();
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -123,6 +135,24 @@ public class HomePane implements Initializable {
         // Set time
         TimeNow();
 
+        // Event Handler for date picker
+        javafx.event.EventHandler<ActionEvent> event = e -> {
+            today = datePicker.getValue();
+            System.out.println(today);
+            query = "SELECT * FROM `absence` WHERE absence.tanggal = '"+today+"'";
+            try {
+                connection = Connections.conDB();
+                assert connection != null;
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.execute();
+                refreshTable();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        };
+
+        datePicker.setOnAction(event);
+
         // Set local date
         datePicker.setValue(LocalDate.now());
         today = datePicker.getValue();
@@ -138,21 +168,22 @@ public class HomePane implements Initializable {
         connection = Connections.conDB();
         try {
             query = "SELECT tanggal FROM `absence` WHERE id_absen IN (SELECT MAX(id_absen) FROM `absence`);";
+            assert connection != null;
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
-//            while (resultSet.next()) {
-//                myDate = resultSet.getString("tanggal");
-//                System.out.println(myDate);
-//                if (today.toString().equals(myDate)) {
-//                    btnGenerate.setDisable(true);
-//                    btnClean.setDisable(false);
-//                } else {
-//                    System.out.println("Query gagal");
-//                    btnGenerate.setDisable(false);
-//                    btnClean.setDisable(true);
-//                }
-//            }
+            while (resultSet.next()) {
+                myDate = resultSet.getString("tanggal");
+                System.out.println(myDate);
+                if (today.toString().equals(myDate)) {
+                    btnGenerate.setDisable(true);
+                    btnClean.setDisable(false);
+                } else {
+                    System.out.println("Query gagal");
+                    btnGenerate.setDisable(false);
+                    btnClean.setDisable(true);
+                }
+            }
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();

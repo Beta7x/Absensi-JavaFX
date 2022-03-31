@@ -52,6 +52,12 @@ public class PegawaiPane implements Initializable {
     private TableColumn<Pegawai, String> idCol;
 
     @FXML
+    private TableColumn<Pegawai, String> ttlCol;
+
+    @FXML
+    private TableColumn<Pegawai, String> jabatanCol;
+
+    @FXML
     private TableColumn<Pegawai, String> nameCol;
 
     @FXML
@@ -83,12 +89,35 @@ public class PegawaiPane implements Initializable {
     }
 
     @FXML
-    private void buttonControlHandle(ActionEvent actionEvent) throws SQLException, IOException {
+    void buttonControlHandle (ActionEvent actionEvent) {
         if (actionEvent.getSource() == btnEdit) {
+            Parent parent = null;
             pegawai = tblAbsensi.getSelectionModel().getSelectedItem();
+            FXMLLoader loader = new FXMLLoader();
+            loader.getClassLoader().getResource("/Fxml/TambahPegawaiPane.fxml");
+            try {
+                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/TambahPegawaiPane.fxml")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            TambahPegawaiPane tambahPegawaiPane = loader.getController();
+            tambahPegawaiPane.setUpdate(true);
+            tambahPegawaiPane.setTextField(pegawai.getId_pegawai(), pegawai.getNama(), pegawai.getNomor_pegawai(),
+                    pegawai.getJabatan(), pegawai.getGolongan(), pegawai.getAlamat(), pegawai.getTtl());
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+
         }
         if (actionEvent.getSource() == btnTambah) {
-            Parent parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/TambahPegawaiPane.fxml")));
+            Parent parent = null;
+            try {
+                parent = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Fxml/TambahPegawaiPane.fxml")));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -110,9 +139,13 @@ public class PegawaiPane implements Initializable {
                 if (result.isPresent() && result.get() == ButtonType.OK) {
                     connection = Connections.conDB();
                     assert connection != null;
-                    preparedStatement = connection.prepareStatement(query);
-                    preparedStatement.execute();
-                    refreshTable();
+                    try {
+                        preparedStatement = connection.prepareStatement(query);
+                        preparedStatement.execute();
+                        refreshTable();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else {
                 title = "Error!";
@@ -171,6 +204,8 @@ public class PegawaiPane implements Initializable {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("nama"));
         golCol.setCellValueFactory(new PropertyValueFactory<>("golongan"));
         alamatCol.setCellValueFactory(new PropertyValueFactory<>("alamat"));
+        jabatanCol.setCellValueFactory(new PropertyValueFactory<>("jabatan"));
+        ttlCol.setCellValueFactory(new PropertyValueFactory<>("ttl"));
     }
 
     private void refreshTable() {
@@ -179,7 +214,7 @@ public class PegawaiPane implements Initializable {
             String key = txtSearch.getText();
             String sql = key.isEmpty()? "" : "WHERE id_pegawai LIKE '%" + key + "%' OR nomor_pegawai LIKE '%" + key + "%' " +
                     "OR nama LIKE '%" + key + "%' OR golongan LIKE '%" + key + "%' OR alamat LIKE '%" + key + "%'";
-            query = "SELECT id_pegawai, nomor_pegawai, nama, golongan, alamat FROM employee " + sql;
+            query = "SELECT id_pegawai, nomor_pegawai, nama, jabatan, golongan, ttl, alamat FROM employee " + sql;
             preparedStatement = connection.prepareStatement(query);
             resultSet = preparedStatement.executeQuery();
 
@@ -189,6 +224,8 @@ public class PegawaiPane implements Initializable {
                         resultSet.getString("nomor_pegawai"),
                         resultSet.getString("nama"),
                         resultSet.getString("golongan"),
+                        resultSet.getString("jabatan"),
+                        resultSet.getString("ttl"),
                         resultSet.getString("alamat")
                 ));
                 tblAbsensi.setItems(PegawaiList);

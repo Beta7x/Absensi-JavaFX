@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -68,7 +70,7 @@
          <Font name="Liberation Sans Bold" size="54.0" />
       </font>
    </Label>
-   <TableView fx:id="tblAbsensi" layoutX="31.0" layoutY="189.0" onMouseClicked="#rowSelect" prefHeight="358.0" prefWidth="715.0" stylesheets="@../Controllers/style.css">
+   <TableView fx:id="tblAbsensi" layoutX="31.0" layoutY="189.0" onMouseClicked="#rowSelect" prefHeight="323.0" prefWidth="715.0" stylesheets="@../Controllers/style.css">
       <columns>
          <TableColumn fx:id="idCol" prefWidth="34.0" style="-fx-alignment: center;" text="No" />
          <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="278.0" style="-fx-alignment: center;" text="Nama" />
@@ -78,11 +80,27 @@
       </columns>
    </TableView>
    <Pane layoutY="-1.0" prefHeight="55.0" prefWidth="776.0" style="-fx-background-color: #424647;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <DatePicker fx:id="datePicker" layoutX="23.0" layoutY="14.0" onMouseReleased="#searchAct" style="-fx-background-color: transparent;" />
+      <DatePicker fx:id="datePicker" layoutX="23.0" layoutY="14.0" style="-fx-background-color: transparent;" />
       <Label fx:id="lblTime" layoutX="624.0" layoutY="8.0" text="00:00" textFill="WHITE">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
+      <JFXButton fx:id="btnGenerate" layoutX="599.0" layoutY="526.0" onMouseClicked="#generateAction" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #00CDE7;" text="Generate Absen" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Sans Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnClean" layoutX="436.0" layoutY="526.0" onMouseClicked="#generateAction" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #FF0000;" text="Bersihkan Absen" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Sans Bold" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </Pane>
 </AnchorPane>

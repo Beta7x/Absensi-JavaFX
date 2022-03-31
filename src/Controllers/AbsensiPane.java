@@ -2,6 +2,7 @@ package Controllers;
 
 import Model.Absen;
 import Utils.Connections;
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -59,7 +64,7 @@ public class AbsensiPane implements Initializable {
     private TextField txtTime;
 
     @FXML
-    private Button btnSave;
+    private JFXButton btnSave;
 
     @FXML
     private TextField txtSearch;
@@ -73,6 +78,12 @@ public class AbsensiPane implements Initializable {
     @FXML
     private ImageView imgLup;
 
+    // Notification
+    String title = null;
+    String message = null;
+    TrayNotification tray;
+    AnimationType type;
+
     @FXML
     void btnSave(MouseEvent event) throws SQLException {
         connection = Connections.conDB();
@@ -84,6 +95,17 @@ public class AbsensiPane implements Initializable {
         sql = "UPDATE absence SET absence.waktu = '"+ time +"', absence.tanggal = '"+date+"', absence.status = '"+status+"' WHERE absence.id_absen = '"+id+"';";
         preparedStatement = connection.prepareStatement(sql);
         preparedStatement.execute();
+
+        title = "Update Data";
+        message = "Data Berhasil Diperbarui!";
+        tray = new TrayNotification();
+        type = AnimationType.POPUP;
+        tray.setAnimationType(type);
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.SUCCESS);
+        tray.showAndDismiss(Duration.millis(3000));
+
         loadData();
 
     }
